@@ -17,14 +17,34 @@ $(document).ready(
     )
     // Funzione sendMessage
     function sendMessage() {
+
+      var data = new Date()
+      var hour = data.getHours()
+      if (hour<10) {
+        hour = '0' + hour
+      }
+      var minutes = data.getMinutes()
+      if (minutes<10) {
+        minutes = '0' + minutes
+      }
+      var time = hour + ':' + minutes
+
       var messageText = $('#textAreaUser').val()
       if (messageText != '') {
-        var clone = $('#clone').clone()
+        var clone = $('#cloneUser').clone()
+        clone.find('.time-message').text(time)
         clone.find('.text-message').text(messageText)
         $('.chat-conversation').append(clone)
         $('#textAreaUser').val('')
-      }
 
+        setTimeout(function(){
+          var cloneRecipient = $('#cloneRecipient').clone()
+          cloneRecipient.find('.time-message').text(time)
+          cloneRecipient.find('.text-message').text('Ok')
+          $('.chat-conversation').append(cloneRecipient)
+          $('#lastAccess').text(time)
+        }, 1000);
+      }
     }
   }
 )

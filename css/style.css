@@ -206,7 +206,7 @@ h3.name {
 .chat-conversation {
   display: flex;
   flex-flow: column;
-  padding: 20px;
+  padding: 20px 5%;
   background-image: url(../img/mine.jpg);
   overflow-y: auto;
   width: 100%;
@@ -219,18 +219,39 @@ h3.name {
   margin: 5px 0;
 }
 
+.container-recipient-message {
+  display: flex;
+  margin: 5px 0;
+}
+
 .user-message {
-  padding: 15px;
-  min-height: 70px;
-  width: 40%;
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  word-break: break-all;
+  padding: 15px 15px 30px;
+  min-height: 50px;
+  min-width: 20%;
+  max-width: 45%;
   border-radius: 15px;
   background-color: #d5f9ba;
 }
 
+.time-message {
+  font-size: 14px;
+  color: gray;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}
+
 .recipient-message {
-  padding: 15px;
-  min-height: 70px;
-  width: 40%;
+  position: relative;
+  word-break: break-all;
+  padding: 15px 15px 30px;
+  min-height: 50px;
+  min-width: 20%;
+  max-width: 45%;
   border-radius: 15px;
   background-color: white;
 }
