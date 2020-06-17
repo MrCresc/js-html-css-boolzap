@@ -1,6 +1,14 @@
 // Rendo le funzionalità attive solo al totale caricamento di tutto il documento
 $(document).ready(
   function () {
+    // Aggiungo funzionalità search bar
+    $('#search').on('keyup', function() {
+    var value = $(this).val().toLowerCase();
+    $('.findable').filter(function() {
+      $(this).parents('.singlechat').toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
     // Aggiungo funzionalità al click dell'icona del tasto invio sulla pagina
     $('.message-area #send').click(
       function () {
@@ -42,9 +50,14 @@ $(document).ready(
           cloneRecipient.find('.time-message').text(time)
           cloneRecipient.find('.text-message').text('Ok')
           $('.chat-conversation').append(cloneRecipient)
-          $('#lastAccess').text(time)
+          $('.lastAccess').text(time)
         }, 1000);
       }
     }
+
+    // function search() {
+    //   var arra
+    //   var search =
+    // }
   }
 )

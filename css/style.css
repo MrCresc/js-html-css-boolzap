@@ -204,13 +204,20 @@ h3.name {
 }
 
 .chat-conversation {
-  display: flex;
   flex-flow: column;
   padding: 20px 5%;
   background-image: url(../img/mine.jpg);
   overflow-y: auto;
   width: 100%;
   height: calc(100% - 160px)
+}
+
+.inactive {
+  display: none;
+}
+
+.active {
+  display: flex;
 }
 
 .container-user-message {
@@ -230,6 +237,7 @@ h3.name {
   flex-flow: row;
   word-break: break-all;
   padding: 15px 15px 30px;
+  margin: 5px 0;
   min-height: 50px;
   min-width: 20%;
   max-width: 45%;
@@ -249,6 +257,7 @@ h3.name {
   position: relative;
   word-break: break-all;
   padding: 15px 15px 30px;
+  margin: 5px 0;
   min-height: 50px;
   min-width: 20%;
   max-width: 45%;
@@ -275,6 +284,7 @@ h3.name {
 
 .message-area input {
   border: 0;
+  border-radius: 5px;
   padding: 10px;
   width: 100%;
 }

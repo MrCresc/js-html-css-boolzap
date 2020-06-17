@@ -42,22 +42,22 @@
           <!-- Search Nav Bar -->
           <div class="search-nav-bar">
             <i class="fas fa-search"></i>
-            <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+            <input id="search" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
           </div>
           <!-- End Search Nav Bar -->
 
           <!-- Chatlist Nav Bar -->
           <div class="chatlist-nav-bar">
-            <div class="singlechat">
+            <div attr="1" class="singlechat">
               <div class="chat-avatar">
                 <img src="img/avatar_1.jpg" alt="">
               </div>
               <div class="chat-text">
-                <h3 class="name">Michele</h3>
+                <h3 class="findable name">Michele</h3>
                 <p>Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
-                <p>17:53</p>
+                <p class="lastAccess">15:40</p>
               </div>
             </div>
 
@@ -66,7 +66,7 @@
                 <img src="img/avatar_2.jpg" alt="">
               </div>
               <div class="chat-text">
-                <h3 class="name">Fabio</h3>
+                <h3 class="findable name">Fabio</h3>
                 <p>Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
@@ -79,7 +79,7 @@
                 <img src="img/avatar_3.jpg" alt="">
               </div>
               <div class="chat-text">
-                <h3 class="name">Samuele</h3>
+                <h3 class="findable name">Samuele</h3>
                 <p>Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
@@ -92,7 +92,7 @@
                 <img src="img/avatar_4.jpg" alt="">
               </div>
               <div class="chat-text">
-                <h3 class="name">Alessandro B.</h3>
+                <h3 class="findable name">Alessandro B.</h3>
                 <p>Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
@@ -105,7 +105,7 @@
                 <img src="img/avatar_5.jpg" alt="">
               </div>
               <div class="chat-text">
-                <h3 class="name">Alessandro L.</h3>
+                <h3 class="findable name">Alessandro L.</h3>
                 <p>Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
@@ -118,7 +118,7 @@
                 <img src="img/avatar_6.jpg" alt="">
               </div>
               <div class="chat-text">
-                <h3 class="name">Claudia</h3>
+                <h3 class="findable name">Claudia</h3>
                 <p>Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
@@ -131,7 +131,7 @@
                 <img src="img/avatar_7.jpg" alt="">
               </div>
               <div class="chat-text">
-                <h3 class="name">Davide</h3>
+                <h3 class="findable name">Davide</h3>
                 <p>Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
@@ -144,7 +144,7 @@
                 <img src="img/avatar_8.jpg" alt="">
               </div>
               <div class="chat-text">
-                <h3 class="name">Federico</h3>
+                <h3 class="findable name">Federico</h3>
                 <p>Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
@@ -162,12 +162,12 @@
               <img class="propic" src="img/avatar_1.jpg" alt="">
               <div class="recipient-info">
                 <h3 class="name">Michele</h3>
-                <p>Ultimo accesso oggi alle <span id="lastAccess">15:40</span></p>
+                <p>Ultimo accesso oggi alle <span class="lastAccess">15:40</span></p>
               </div>
             </div>
           </div>
 
-          <div class="chat-conversation">
+          <div class="chat-conversation active">
             <div id="cloneUser" class="container-user-message">
               <div class="user-message">
                 <p class="text-message">Ciao</p>
@@ -181,6 +181,10 @@
                 <span class="time-message">15:40</span>
               </div>
             </div>
+          </div>
+
+          <div class="chat-conversation inactive">
+            <p>Zucm a pall</p>
           </div>
 
           <div class="message-area">
