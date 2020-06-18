@@ -26,6 +26,14 @@ $(document).ready(
         }
       }
     )
+    // Cambio di icona dal microfono all'aereoplanino al focusin dell'input
+    $('#textAreaUser').focusin(function(){
+      $('#send').removeClass('fa-microphone').addClass('fa-paper-plane')
+    });
+    // Cambio di icona dall'aereoplanino al microfono al focusout dell'input
+    $('#textAreaUser').focusout(function(){
+      $('#send').removeClass('fa-paper-plane').addClass('fa-microphone')
+    });
     // Aggiungo funzionalità al click dell'icona del tasto invio sulla pagina
     $('.message-area #send').click(
       function () {
