@@ -45,6 +45,7 @@ $(document).ready(
       function () {
         $(this).parents('[id*="clone"]').siblings('div').find('.dropdown-list').removeClass('dropdown-list-active')
         $(this).siblings('ul').toggleClass('dropdown-list-active')
+        $('.chat-conversation.active').scrollTop($('.chat-conversation.active').prop('scrollHeight'))
       }
     )
     // Aggiungo funzione al click sul list-item "Info messaggio"
@@ -87,7 +88,7 @@ $(document).ready(
         clone.find('.text-message').text(messageText)
         $('.chat-conversation.active').append(clone)
         $('[index="'+index+'"] .timestamp p').text(time)
-        $('.chat-conversation.active').scrollTop($('.chat-conversation.active').height())
+        $('.chat-conversation.active').scrollTop($('.chat-conversation.active').prop('scrollHeight'))
         $('#textAreaUser').val('')
         $('[index="'+index+'"] p.lastmessage').text(messageText)
         // Imposto lo stato "Online" del destinatario
@@ -107,7 +108,7 @@ $(document).ready(
           $('[index="'+index+'"] .timestamp p').text(time)
           $('.recipient-info').children('p').html('<p>Ultimo accesso oggi alle <span class="lastAccess"></span></p>')
           $('.lastAccess').text(time)
-          $('.chat-conversation.active').scrollTop($('.chat-conversation.active').height())
+          $('.chat-conversation.active').scrollTop($('.chat-conversation.active').prop('scrollHeight'))
         }, 1000);
       }
     }
