@@ -9,21 +9,23 @@ $(document).ready(
     });
   });
 
-// Aggiungo visualizzazione storico chat al click della nav bar laterale
-  $('.singlechat').click(
-    function () {
-      var index = $(this).attr('index')
-      $('.chat-conversation').removeClass('active').addClass('inactive')
-      var name = $(this).find('.name').text()
-      $('#active-user').text(name)
-      var img = $(this).find('img').attr('src')
-      $('#active-user-img').attr('src',img)
-      var time = $(this).find('.timestamp').text()
-      $('.lastAccess').text(time)
-      $('.chat-conversation[index="'+ index +'"]').removeClass('inactive').addClass('active')
-    }
-  )
-
+    // Aggiungo visualizzazione storico chat al click della nav bar laterale
+    $('.singlechat').click(
+      function () {
+        var index = $(this).attr('index')
+        $('.chat-conversation').removeClass('active').addClass('inactive')
+        var name = $(this).find('.name').text()
+        $('#active-user').text(name)
+        var img = $(this).find('img').attr('src')
+        $('#active-user-img').attr('src',img)
+        $('.chat-conversation[index="'+ index +'"]').removeClass('inactive').addClass('active')
+        var time = $(this).find('.timestamp').text()
+        // Imposto eccezione che non modifica l'orario dell'ultimo accesso in caso di assenza di messaggi
+        if ($('.chat-conversation.active [class*="message"]').length > 0) {
+          $('.lastAccess').text(time)
+        }
+      }
+    )
     // Aggiungo funzionalità al click dell'icona del tasto invio sulla pagina
     $('.message-area #send').click(
       function () {
@@ -38,44 +40,45 @@ $(document).ready(
         }
       }
     )
-
+    // Aggiungo funzione al click dell'icona dropdown e reset di eventuali altre dropdown aperte
     $(document).on('click','.dropdown-btn',
       function () {
         $(this).parents('[id*="clone"]').siblings('div').find('.dropdown-list').removeClass('dropdown-list-active')
         $(this).siblings('ul').toggleClass('dropdown-list-active')
       }
     )
-
+    // Aggiungo funzione al click sul list-item "Info messaggio"
+    $(document).on('click','.info-msg',
+      function () {
+        alert('inviato alle ' + $(this).parent().siblings('.time-message').text() + ' e ricevuto alle ' + $(this).parent().siblings('.time-message').text())
+      }
+    )
+    // Aggiungo funzione al click sul list-item "Elimina messaggio"
     $(document).on('click','.delete-msg',
       function () {
         var val = $(this).parents('.chat-conversation.active').attr('index')
         $(this).parents('[id*="clone"]').remove()
         $('.singlechat[index="'+ val +'"]').children('.timestamp').children('p').text($('.chat-conversation.active').find('span').last('time-message').text())
         $('.singlechat[index="'+ val +'"]').find('.lastmessage').text($('.chat-conversation.active').find('p').last('text-message').text())
-
-      }
-    )
-
-    $(document).on('click','.info-msg',
-      function () {
-        alert('inviato alle ' + $(this).parent().siblings('.time-message').text() + ' e ricevuto alle ' + $(this).parent().siblings('.time-message').text())
       }
     )
 
     // Funzione sendMessage
-    function sendMessage(index) {
-
+    function sendMessage() {
+      // Calcolo l'orario
       var data = new Date()
       var hour = data.getHours()
+      // Aggiungo uno 0 nel caso le ore sono meno di 10
       if (hour<10) {
         hour = '0' + hour
       }
       var minutes = data.getMinutes()
+      // Aggiungo uno 0 nel caso i minuti sono meno di 10
       if (minutes<10) {
         minutes = '0' + minutes
       }
       var time = hour + ':' + minutes
-
+      // Creo il messaggio dell'utente
       var messageText = $('#textAreaUser').val()
       if (messageText != '') {
         var index = $('.active').attr('index')
@@ -87,13 +90,13 @@ $(document).ready(
         $('.chat-conversation.active').scrollTop($('.chat-conversation.active').height())
         $('#textAreaUser').val('')
         $('[index="'+index+'"] p.lastmessage').text(messageText)
-
+        // Imposto lo stato "Online" del destinatario
         $('.recipient-info').children('p').text('Online')
-
+        // Imposto lo stato "Sta scrivendo..." del destinatario
         setTimeout(function(){
           $('.recipient-info').children('p').text('Sta scrivendo...')
         }, 500);
-
+        // Creo il messaggio automatico del destinatario
         setTimeout(function(){
           var index = $('.active').attr('index')
           var cloneRecipient = $('#cloneRecipient').clone()
@@ -105,7 +108,6 @@ $(document).ready(
           $('.recipient-info').children('p').html('<p>Ultimo accesso oggi alle <span class="lastAccess"></span></p>')
           $('.lastAccess').text(time)
           $('.chat-conversation.active').scrollTop($('.chat-conversation.active').height())
-
         }, 1000);
       }
     }

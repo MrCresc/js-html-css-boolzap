@@ -1,12 +1,16 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+/* End Reset */
 
+/* Body Rules */
 body {
   font-family: helvetica;
 }
+/* End Body Rules */
 
 /* Wrapper Background */
 .app-wrapper {
@@ -18,13 +22,18 @@ body {
   justify-content: center;
   align-items: center;
 }
+/* End Wrapper Background */
 
+/* Wrapper UI */
 .ui-wrapper {
   display: flex;
   flex-basis: 1600px;
   height: 95%;
 }
+/* End Wrapper UI */
 
+/* Nav Bar ------------------------------------------------------------------ */
+/* Basic Nav Bar Rules */
 .nav-bar {
   display: flex;
   flex-direction: column;
@@ -32,7 +41,9 @@ body {
   width: 35%;
   height: 100%;
 }
+/* End Basic Nav Bar Rules */
 
+/* Top Nav Bar */
 .top-nav-bar {
   display: flex;
   justify-content: space-between;
@@ -58,7 +69,9 @@ body {
   cursor: pointer;
   font-size: 24px;
 }
+/* End Top Nav Bar */
 
+/* Alert Nav Bar */
 .alert-nav-bar {
   display: flex;
   align-items: center;
@@ -100,7 +113,9 @@ body {
   color: #598398;
   font-weight: 500;
 }
+/* End Alert Nav Bar */
 
+/* Search Nav Bar */
 .search-nav-bar {
   display: flex;
   align-items: center;
@@ -122,7 +137,9 @@ body {
   padding: 10px;
   width: 500px;
 }
+/* End Search Nav Bar */
 
+/* Chatlist Nav Bar */
 .chatlist-nav-bar {
   overflow-y: auto;
   width: 100%;
@@ -175,14 +192,20 @@ h3.name {
   flex-basis: 20%;
   flex-direction: row-reverse;
 }
+/* End Chatlist Nav Bar */
+/* End Nav Bar -------------------------------------------------------------- */
 
+/* Chat --------------------------------------------------------------------- */
+/* Basic Chat Rules */
 .chat {
   display: flex;
   flex-flow: column;
   width: 65%;
   height: 100%;
 }
+/* End Basic Chat Rules */
 
+/* Top Chat */
 .top-chat {
   display: flex;
   justify-content: space-between;
@@ -202,11 +225,15 @@ h3.name {
 .recipient-info p {
   color: gray;
 }
+/* End Top Chat */
 
+/* Invisible Templates */
 .templates {
   display: none;
 }
+/* End Invisible Templates */
 
+/* Chat Conversation */
 .chat-conversation {
   flex-flow: column;
   padding: 20px 5%;
@@ -309,7 +336,9 @@ h3.name {
   border-radius: 15px;
   background-color: white;
 }
+/* End Chat Conversation */
 
+/* Message Area */
 .message-area {
   display: flex;
   align-items: center;
@@ -333,3 +362,5 @@ h3.name {
   padding: 10px;
   width: 100%;
 }
+/* End Message Area */
+/* End Chat ----------------------------------------------------------------- */
