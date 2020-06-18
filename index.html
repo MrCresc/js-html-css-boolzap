@@ -34,7 +34,7 @@
 
             <div class="alert-text">
               <p>Ricevi notifiche di nuovi messaggi</p>
-              <a href="#">Attiva notifiche desktop</a>
+              <a href="https://faq.whatsapp.com/web/chats/how-to-manage-your-notifications">Attiva notifiche desktop</a>
             </div>
           </div>
           <!-- End Alert Nav Bar Left -->
@@ -48,104 +48,104 @@
 
           <!-- Chatlist Nav Bar -->
           <div class="chatlist-nav-bar">
-            <div attr="1" class="singlechat">
+            <div index="1" class="singlechat">
               <div class="chat-avatar">
                 <img src="img/avatar_1.jpg" alt="">
               </div>
               <div class="chat-text">
                 <h3 class="findable name">Michele</h3>
-                <p>Non poteva essere altrimenti</p>
+                <p class="lastmessage">Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
-                <p class="lastAccess">15:40</p>
+                <p>15:40</p>
               </div>
             </div>
 
-            <div class="singlechat">
+            <div index="2" class="singlechat">
               <div class="chat-avatar">
                 <img src="img/avatar_2.jpg" alt="">
               </div>
               <div class="chat-text">
                 <h3 class="findable name">Fabio</h3>
-                <p>Non poteva essere altrimenti</p>
+                <p class="lastmessage">Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
                 <p>17:53</p>
               </div>
             </div>
 
-            <div class="singlechat">
+            <div index="3" class="singlechat">
               <div class="chat-avatar">
                 <img src="img/avatar_3.jpg" alt="">
               </div>
               <div class="chat-text">
                 <h3 class="findable name">Samuele</h3>
-                <p>Non poteva essere altrimenti</p>
+                <p class="lastmessage">Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
                 <p>17:53</p>
               </div>
             </div>
 
-            <div class="singlechat">
+            <div index="4" class="singlechat">
               <div class="chat-avatar">
                 <img src="img/avatar_4.jpg" alt="">
               </div>
               <div class="chat-text">
                 <h3 class="findable name">Alessandro B.</h3>
-                <p>Non poteva essere altrimenti</p>
+                <p class="lastmessage">Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
                 <p>17:53</p>
               </div>
             </div>
 
-            <div class="singlechat">
+            <div index="5" class="singlechat">
               <div class="chat-avatar">
                 <img src="img/avatar_5.jpg" alt="">
               </div>
               <div class="chat-text">
                 <h3 class="findable name">Alessandro L.</h3>
-                <p>Non poteva essere altrimenti</p>
+                <p class="lastmessage">Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
                 <p>17:53</p>
               </div>
             </div>
 
-            <div class="singlechat">
+            <div index="6" class="singlechat">
               <div class="chat-avatar">
                 <img src="img/avatar_6.jpg" alt="">
               </div>
               <div class="chat-text">
                 <h3 class="findable name">Claudia</h3>
-                <p>Non poteva essere altrimenti</p>
+                <p class="lastmessage">Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
                 <p>17:53</p>
               </div>
             </div>
 
-            <div class="singlechat">
+            <div index="7" class="singlechat">
               <div class="chat-avatar">
                 <img src="img/avatar_7.jpg" alt="">
               </div>
               <div class="chat-text">
                 <h3 class="findable name">Davide</h3>
-                <p>Non poteva essere altrimenti</p>
+                <p class="lastmessage">Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
                 <p>17:53</p>
               </div>
             </div>
 
-            <div class="singlechat">
+            <div index="8" class="singlechat">
               <div class="chat-avatar">
                 <img src="img/avatar_8.jpg" alt="">
               </div>
               <div class="chat-text">
                 <h3 class="findable name">Federico</h3>
-                <p>Non poteva essere altrimenti</p>
+                <p class="lastmessage">Non poteva essere altrimenti</p>
               </div>
               <div class="timestamp">
                 <p>17:53</p>
@@ -159,19 +159,24 @@
         <div class="chat">
           <div class="top-chat">
             <div class="recipient">
-              <img class="propic" src="img/avatar_1.jpg" alt="">
+              <img id="active-user-img" class="propic" src="img/avatar_1.jpg" alt="">
               <div class="recipient-info">
-                <h3 class="name">Michele</h3>
+                <h3 id="active-user" class="name">Michele</h3>
                 <p>Ultimo accesso oggi alle <span class="lastAccess">15:40</span></p>
               </div>
             </div>
           </div>
 
-          <div class="chat-conversation active">
+          <div class="templates">
             <div id="cloneUser" class="container-user-message">
               <div class="user-message">
                 <p class="text-message">Ciao</p>
                 <span class="time-message">15:40</span>
+                <i class="dropdown-btn fas fa-chevron-down"></i>
+                <ul class="dropdown-list">
+                  <li class="info-msg">Info messaggio</li>
+                  <li class="delete-msg">Elimina messaggio</li>
+                </ul>
               </div>
             </div>
 
@@ -179,17 +184,65 @@
               <div class="recipient-message">
                 <p class="text-message">Ciao</p>
                 <span class="time-message">15:40</span>
+                <i class="dropdown-btn fas fa-chevron-down"></i>
+                <ul class="dropdown-list">
+                  <li class="info-msg">Info messaggio</li>
+                  <li class="delete-msg">Elimina messaggio</li>
+                </ul>
               </div>
             </div>
           </div>
 
-          <div class="chat-conversation inactive">
-            <p>Zucm a pall</p>
+          <div index="1" class="chat-conversation active">
+            <div id="cloneUser" class="container-user-message">
+              <div class="user-message">
+                <p class="text-message">Ciao</p>
+                <span class="time-message">15:40</span>
+                <i class="dropdown-btn fas fa-chevron-down"></i>
+                <ul class="dropdown-list">
+                  <li class="info-msg">Info messaggio</li>
+                  <li class="delete-msg">Elimina messaggio</li>
+                </ul>
+              </div>
+            </div>
+
+            <div id="cloneRecipient" class="container-recipient-message">
+              <div class="recipient-message">
+                <p class="text-message">Ciao</p>
+                <span class="time-message">15:40</span>
+                <i class="dropdown-btn fas fa-chevron-down"></i>
+                <ul class="dropdown-list">
+                  <li class="info-msg">Info messaggio</li>
+                  <li class="delete-msg">Elimina messaggio</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div index='2' class="chat-conversation inactive">
+          </div>
+
+          <div index='3' class="chat-conversation inactive">
+          </div>
+
+          <div index='4' class="chat-conversation inactive">
+          </div>
+
+          <div index='5' class="chat-conversation inactive">
+          </div>
+
+          <div index='6' class="chat-conversation inactive">
+          </div>
+
+          <div index='7' class="chat-conversation inactive">
+          </div>
+
+          <div index='8' class="chat-conversation inactive">
           </div>
 
           <div class="message-area">
             <i class="far fa-smile"></i>
-            <input id="textAreaUser" type="text" name="" value="">
+            <input id="textAreaUser" type="text" name="" value="" placeholder="Scrivi un messaggio">
             <i id="send" class="fas fa-paper-plane"></i>
           </div>
         </div>

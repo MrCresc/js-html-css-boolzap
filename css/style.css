@@ -203,6 +203,10 @@ h3.name {
   color: gray;
 }
 
+.templates {
+  display: none;
+}
+
 .chat-conversation {
   flex-flow: column;
   padding: 20px 5%;
@@ -236,13 +240,54 @@ h3.name {
   display: flex;
   flex-flow: row;
   word-break: break-all;
-  padding: 15px 15px 30px;
+  padding: 24px 15px 30px;
   margin: 5px 0;
   min-height: 50px;
   min-width: 20%;
   max-width: 45%;
   border-radius: 15px;
   background-color: #d5f9ba;
+}
+
+.user-message:hover .dropdown-btn,
+.recipient-message:hover .dropdown-btn {
+  display: block;
+}
+
+.dropdown-btn {
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.dropdown-list {
+  z-index: 1;
+  border: 1px solid lightgray;
+  display: none;
+  list-style: none;
+  position: absolute;
+  top: 50px;
+  right: 8px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 5px 10px 8px #888888;
+}
+
+.dropdown-list-active {
+  display: block;
+}
+
+.dropdown-list li {
+  color: #464646;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.dropdown-list li:hover {
+  color: black;
 }
 
 .time-message {
@@ -256,7 +301,7 @@ h3.name {
 .recipient-message {
   position: relative;
   word-break: break-all;
-  padding: 15px 15px 30px;
+  padding: 24px 15px 30px;
   margin: 5px 0;
   min-height: 50px;
   min-width: 20%;
