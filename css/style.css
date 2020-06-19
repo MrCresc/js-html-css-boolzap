@@ -155,8 +155,16 @@ body {
   align-items: center;
 }
 
+.singlechat.selected {
+  background-color: #e9ebeb;
+}
+
 .singlechat:hover {
   background-color: #e9ebeb;
+}
+
+.last-access-value {
+  display: none;
 }
 
 .chat-avatar {
@@ -280,6 +288,7 @@ h3.name {
 }
 
 .dropdown-btn {
+  color: #B6B9BB;
   cursor: pointer;
   display: none;
   position: absolute;
@@ -317,7 +326,7 @@ h3.name {
 
 .time-message {
   font-size: 14px;
-  color: gray;
+  color: #B6B9BB;
   position: absolute;
   bottom: 8px;
   right: 8px;

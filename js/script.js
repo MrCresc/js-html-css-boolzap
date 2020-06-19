@@ -12,6 +12,8 @@ $(document).ready(
     // Aggiungo visualizzazione storico chat al click della nav bar laterale
     $('.singlechat').click(
       function () {
+        $('.singlechat').removeClass('selected')
+        $(this).addClass('selected')
         var index = $(this).attr('index')
         $('.chat-conversation').removeClass('active').addClass('inactive')
         var name = $(this).find('.name').text()
@@ -19,11 +21,8 @@ $(document).ready(
         var img = $(this).find('img').attr('src')
         $('#active-user-img').attr('src',img)
         $('.chat-conversation[index="'+ index +'"]').removeClass('inactive').addClass('active')
-        var time = $(this).find('.timestamp').text()
-        // Imposto eccezione che non modifica l'orario dell'ultimo accesso in caso di assenza di messaggi
-        if ($('.chat-conversation.active [class*="message"]').length > 0) {
-          $('.lastAccess').text(time)
-        }
+        var time = $(this).find('.last-access-value').text()
+        $('.lastAccess').text(time)
       }
     )
     // Cambio di icona dal microfono all'aereoplanino al focusin dell'input
@@ -65,8 +64,8 @@ $(document).ready(
     // Aggiungo funzione al click sul list-item "Elimina messaggio"
     $(document).on('click','.delete-msg',
       function () {
-        var val = $(this).parents('.chat-conversation.active').attr('index')
-        $(this).parents('[id*="clone"]').remove()
+        var val = $(this).closest('.chat-conversation.active').attr('index')
+        $(this).closest('[id*="clone"]').remove()
         $('.singlechat[index="'+ val +'"]').children('.timestamp').children('p').text($('.chat-conversation.active').find('span').last('time-message').text())
         $('.singlechat[index="'+ val +'"]').find('.lastmessage').text($('.chat-conversation.active').find('p').last('text-message').text())
       }
@@ -115,6 +114,7 @@ $(document).ready(
           $('[index="'+index+'"] p.lastmessage').text('Ok')
           $('[index="'+index+'"] .timestamp p').text(time)
           $('.recipient-info').children('p').html('<p>Ultimo accesso oggi alle <span class="lastAccess"></span></p>')
+          $('.singlechat[index="'+index+'"]').children('.last-access-value').text(time)
           $('.lastAccess').text(time)
           $('.chat-conversation.active').scrollTop($('.chat-conversation.active').prop('scrollHeight'))
         }, 1000);
